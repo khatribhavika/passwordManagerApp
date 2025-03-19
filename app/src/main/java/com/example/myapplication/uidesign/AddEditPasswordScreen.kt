@@ -36,19 +36,16 @@ fun AddEditPasswordScreen(
     var encryptedPassword by remember { mutableStateOf(password?.encryptedPassword ?: "") }
     var passwordVisible by remember { mutableStateOf(false) }
 
-    // Validation error messages
+    /* Validation error messages */
     var accountTypeError by remember { mutableStateOf<String?>(null) }
     var usernameError by remember { mutableStateOf<String?>(null) }
     var passwordError by remember { mutableStateOf<String?>(null) }
 
     val isEditing = password != null
-
-    // Focus requesters
     val accountTypeFocusRequester = remember { FocusRequester() }
     val usernameFocusRequester = remember { FocusRequester() }
     val passwordFocusRequester = remember { FocusRequester() }
 
-    // Optional: Request focus on first field when screen loads
     LaunchedEffect(Unit) {
         accountTypeFocusRequester.requestFocus()
     }
@@ -72,7 +69,6 @@ fun AddEditPasswordScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Account Type Field
             OutlinedTextField(
                 value = accountType,
                 onValueChange = {
@@ -101,7 +97,6 @@ fun AddEditPasswordScreen(
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            // Username Field
             OutlinedTextField(
                 value = username,
                 onValueChange = {
@@ -130,7 +125,6 @@ fun AddEditPasswordScreen(
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            // Password Field
             OutlinedTextField(
                 value = encryptedPassword,
                 onValueChange = {
@@ -184,7 +178,6 @@ fun AddEditPasswordScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Save Button
             Button(
                 onClick = {
                     savePassword(

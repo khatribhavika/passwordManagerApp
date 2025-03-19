@@ -71,33 +71,6 @@ class PasswordDatabaseHelper(context: Context) :
         return passwords
     }
 
-    fun getPasswordById(id: Int): PasswordEntity? {
-        val db = readableDatabase
-        var password: PasswordEntity? = null
-
-        val cursor = db.query(
-            TABLE_NAME,
-            arrayOf(COLUMN_ID, COLUMN_ACCOUNT_TYPE, COLUMN_USERNAME, COLUMN_PASSWORD),
-            "$COLUMN_ID = ?",
-            arrayOf(id.toString()),
-            null,
-            null,
-            null
-        )
-
-        if (cursor.moveToFirst()) {
-            password = PasswordEntity(
-                id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID)),
-                accountType = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_ACCOUNT_TYPE)),
-                username = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_USERNAME)),
-                encryptedPassword = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PASSWORD))
-            )
-        }
-
-        cursor.close()
-        return password
-    }
-
     fun updatePassword(passwordEntity: PasswordEntity): Int {
         val db = writableDatabase
         val values = ContentValues().apply {

@@ -10,8 +10,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.Button
@@ -102,16 +100,15 @@ fun PasswordDetailsScreen(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp), // Padding from sides
-            horizontalArrangement = Arrangement.SpaceBetween // Spread out buttons
+                .padding(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            // Edit Button
             Button(
                 onClick = onEdit,
                 colors = ButtonDefaults.buttonColors(containerColor = Color.Black),
-                shape = RoundedCornerShape(50), // Pill shape
+                shape = RoundedCornerShape(50),
                 modifier = Modifier
-                    .weight(1f) // Take equal space
+                    .weight(1f)
                     .height(50.dp)
             ) {
                 Text(
@@ -121,13 +118,12 @@ fun PasswordDetailsScreen(
                 )
             }
 
-            Spacer(modifier = Modifier.width(16.dp)) // Space between buttons
+            Spacer(modifier = Modifier.width(16.dp))
 
-            // Delete Button
             Button(
                 onClick = onDelete,
                 colors = ButtonDefaults.buttonColors(containerColor = Color.Red),
-                shape = RoundedCornerShape(50), // Pill shape
+                shape = RoundedCornerShape(50),
                 modifier = Modifier
                     .weight(1f)
                     .height(50.dp)

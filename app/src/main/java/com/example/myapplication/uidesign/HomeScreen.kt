@@ -24,13 +24,12 @@ package com.example.myapplication.uidesign
     import androidx.compose.ui.text.font.FontWeight
     import androidx.compose.ui.unit.dp
     import androidx.compose.ui.unit.sp
-    import androidx.navigation.NavController
     import com.example.myapplication.data.PasswordDatabaseHelper
     import com.example.myapplication.data.PasswordEntity
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(navController: NavController, dbHelper: PasswordDatabaseHelper) {
+fun HomeScreen(dbHelper: PasswordDatabaseHelper) {
     var passwords by remember { mutableStateOf(emptyList<PasswordEntity>()) }
 
     var selectedPassword by remember { mutableStateOf<PasswordEntity?>(null) }
@@ -121,7 +120,7 @@ fun HomeScreen(navController: NavController, dbHelper: PasswordDatabaseHelper) {
             }
         }
 
-        // Details Bottom Sheet
+        /* Details Bottom Sheet */
         if (showDetailsSheet && selectedPassword != null) {
             ModalBottomSheet(
                 onDismissRequest = {
@@ -148,7 +147,7 @@ fun HomeScreen(navController: NavController, dbHelper: PasswordDatabaseHelper) {
             }
         }
 
-        // Add/Edit Bottom Sheet
+        /* Add/Edit Bottom Sheet */
         if (showAddEditSheet) {
             ModalBottomSheet(
                 onDismissRequest = {

@@ -26,9 +26,6 @@ class MainActivity : ComponentActivity() {
                 composable("home") {
                     HomeScreen(navController, dbHelper)
                 }
-                /*composable("add") {
-                    AddEditPasswordScreen(navController, dbHelper)
-                }*/
             }
         }
     }
