@@ -24,17 +24,18 @@ package com.example.myapplication.uidesign
     import androidx.compose.ui.text.font.FontWeight
     import androidx.compose.ui.unit.dp
     import androidx.compose.ui.unit.sp
+    import androidx.navigation.NavController
     import com.example.myapplication.data.PasswordDatabaseHelper
     import com.example.myapplication.data.PasswordEntity
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(dbHelper: PasswordDatabaseHelper) {
+fun HomeScreen(navController : NavController, dbHelper: PasswordDatabaseHelper) {
     var passwords by remember { mutableStateOf(emptyList<PasswordEntity>()) }
 
     var selectedPassword by remember { mutableStateOf<PasswordEntity?>(null) }
 
-    // Bottom sheet visibility states
+    /* Bottom sheet visibility states*/
     var showDetailsSheet by remember { mutableStateOf(false) }
     var showAddEditSheet by remember { mutableStateOf(false) }
 
